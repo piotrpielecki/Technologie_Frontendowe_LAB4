@@ -6,8 +6,9 @@ app.use(cors());
 const port = 8085;
 
 let users = {
-    admin: { password: "123456", name: "Admin", surname: "Admin" },
-    jan: { password: "jan1234", name: "Jan", surname: "Kowalski" }
+    admin: { password: "123456", name: "Admin", surname: "Admin", email: "admin@admin.pl" },
+    jan: { password: "jan1234", name: "Jan", surname: "Kowalski", email: "jan@kowalski.pl" },
+    test: { password: "test123", name: "Test", surname: "Test", email: "test@test.pl" }
 };
 
 app.post('/auth/login', cors(), (request, response) => {

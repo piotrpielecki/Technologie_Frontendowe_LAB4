@@ -2,6 +2,7 @@ var ajaxService = null;
 
 function init() {
     document.getElementById("loginBtn").addEventListener("click", signIn);
+    document.getElementById("showUsersBtn").addEventListener("click", showAllUsers);
     ajaxService = new AjaxService();
 }
 
@@ -33,6 +34,36 @@ function showUserDetails(login) {
             document.getElementById("loginPanel").style.display = "none";
             document.getElementById("appPanel").style.display = "block";
             document.getElementById("userDetails").textContent = `${response.name} ${response.surname}`;
+        }
+    });
+}
+
+function showAllUsers(login) {
+    ajaxService.get({
+        url: `http://127.0.0.1:8085/allUsers`,
+        success: function (response) {
+            console.log();
+            console.log(Object.values(response));
+            if (typeof response == "object") {
+                response = Object.values(response);
+            }
+            var table = document.getElementById("tableContent");
+            response.forEach(element => {
+                console.log(element);
+                var row = document.createElement("tr");
+                var nameNode = document.createElement("td");
+                nameNode.innerText = element["name"];
+                var surnameNode = document.createElement("td");
+                surnameNode.innerText = element["surname"];
+                var emailNode = document.createElement("td");
+                emailNode.innerText = element["email"];
+
+                row.appendChild(nameNode);
+                row.appendChild(surnameNode);
+                row.appendChild(emailNode);
+                table.appendChild(row);
+            });
+            document.getElementById("tableContent").innerHTML
         }
     });
 }

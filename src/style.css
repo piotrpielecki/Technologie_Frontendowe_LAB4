@@ -7,7 +7,7 @@ body, html {
 }
 
 .panel {
-    height: 160px;
+    height: 25vh;
     width: 440px;
     margin: auto;
     border: 1px black solid;
@@ -17,6 +17,7 @@ body, html {
     bottom: 0px;
     left: 0px;
     right: 0px;
+    overflow: hidden;
 }
 
 .panel input {
@@ -27,4 +28,37 @@ body, html {
 
 #message {
     color: red;
+}
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
 }
