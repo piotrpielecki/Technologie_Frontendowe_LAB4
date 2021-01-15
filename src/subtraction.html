@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>REST CLIENT DEMO</title>
+    <meta name="author" content="Piotr Pielecki">
     <script src="ajax.service.js"></script>
     <link rel="stylesheet" href="style.css"></link>
-    <meta name="author" content="Piotr Pielecki">
     <meta name="description" content="Technologie frontendowe">
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -47,44 +47,46 @@
 
     <!-- Content -->
     <div class="container">
-        <h1>Logowanie</h1>
+        <h1>Podstawowe obliczenia matematyczne - Odejmowanie</h1>
     </div>
 
     <div class="container-lg">
-        <div id="loginPanel" class="panel">
-            <div style="text-align: center; margin-bottom: 4px;">App login</div>
-            <input type="text" placeholder="Username" id="login">
-            <input type="password" placeholder="Password" id="password">
-            <input type="button" id="loginBtn" value="Login">
-            <div id="message"></div>
-        </div>
-        <div id="appPanel" class="panel" style="display: none">
-            Welcome <span id="userDetails"></span>!
-            <div>
-                <input type="button" id="showUsersBtn" value="Show all users">
+        <div class="row">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">A</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Podaj A" aria-label="Username"
+                    aria-describedby="input-A" id="input-A">
+
+                <div class="input-group-prepend">
+                    <span class="input-group-text">B</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Podaj B" aria-label="Username"
+                    aria-describedby="input-B" id="input-B">
+
+                <div class="input-group-prepend">
+                    <span class="input-group-text">C</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Wynik" aria-describedby="input-C" disabled
+                    id="input-C">
             </div>
-            <div class="container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Surname
-                            </th>
-                            <th>
-                                Email
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableContent">
-    
-                    </tbody>
-                </table>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="alert alert-danger d-none" role="alert" id="error-A">
+                    Uwaga: podana wartość nie jest liczbą!
+                </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+                <div class="alert alert-danger d-none" role="alert" id="error-B">
+                    Uwaga: podana wartość nie jest liczbą!
+                </div>
             </div>
         </div>
 
+        <button class="btn btn-primary" id="submit">Oblicz</button>
     </div>
     <!-- Content -->
 

@@ -1,5 +1,7 @@
 const express = require('express');
 var cors = require('cors');
+const logic = require('./logic');
+
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -25,6 +27,37 @@ app.post('/auth/login', cors(), (request, response) => {
             response.json({ logged: true, message: `User login success ${login}.` });
         }
     }
+});
+
+let mathTools = new logic.MathTools();
+app.post('/calc/add', (request, response) => {
+    let a = request.body.a;
+    let b = request.body.b;
+    response.json(mathTools.add(a, b));
+});
+
+app.post('/calc/subtract', (request, response) => {
+    let a = request.body.a;
+    let b = request.body.b;
+    response.json(mathTools.subtract(a, b));
+});
+
+app.post('/calc/multiply', (request, response) => {
+    let a = request.body.a;
+    let b = request.body.b;
+    response.json(mathTools.multiply(a, b));
+});
+
+app.post('/calc/divide', (request, response) => {
+    let a = request.body.a;
+    let b = request.body.b;
+    response.json(mathTools.divide(a, b));
+});
+
+app.post("/calc/power", (request, response) => {
+    let a = request.body.a;
+    let b = request.body.b;
+    response.json(mathTools.power(a, b));
 });
 
 app.get('/userDetails/:login', cors(), function (request, response) {
